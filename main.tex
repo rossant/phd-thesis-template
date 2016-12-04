@@ -1,0 +1,255 @@
+\documentclass[a4paper,twoside,12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocbibind}
+% \usepackage{lineno}
+% \linenumbers
+\usepackage{natbib}
+\def\bibfont{\small}
+\bibpunct{(}{)}{,}{a}{}{}
+\usepackage{url}
+\usepackage[font=footnotesize,format=plain,labelfont=bf,up,textfont=up]{caption}
+\usepackage[top=3.5cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=1.2cm,footnotesep=1.2cm]{geometry}
+\usepackage[plainpages=false,backref,bookmarks=true,hypertexnames=false,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{bookmark}
+\bookmarksetup{startatroot}
+\usepackage{minitoc}
+\mtcselectlanguage{english}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% rules, no headings
+\fancypagestyle{fancyempty}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\bfseries\thepage}
+    \fancyhead[LO]{}
+    \fancyhead[RE]{}
+    \addtolength{\headheight}{0.5pt}}
+% empty
+\fancypagestyle{empty}{
+    \fancyhead{}\renewcommand{\headrulewidth}{0pt}}
+% full headings
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\bfseries\thepage}
+    \fancyhead[LO]{\bfseries\nouppercase\rightmark}
+    \fancyhead[RE]{\bfseries\nouppercase\leftmark}
+    \addtolength{\headheight}{0.5pt}}
+
+% MARGINS
+\titlespacing*{\chapter}{0pt}{-40pt}{20pt}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{30pt}{\Huge}
+\titleformat{\paragraph}[display]{\normalfont\itshape}{\paragraphtitlename\ \theparagraph}{}{}
+
+% CHAPTER HEADINGS
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \reset@font
+  \parindent \z@
+  \vspace*{10\p@}%
+  \hbox{%
+    % BOX
+    \vbox{\hsize=2.5cm
+      \begin{tabular}{c}
+        \scshape \strut \@chapapp{} \\
+        \fbox{%
+          \vrule depth 10em height 5em width 0pt%
+          \vrule height 0pt depth 0pt width 1ex%
+          {\fontsize{48}{0}\selectfont \bfseries \strut \thechapter}%
+          \vrule height 0pt depth 0pt width 1ex%
+          }
+      \end{tabular}%
+      }%
+    % CHAPTER TITLE
+    \vbox{%
+      \advance\hsize by -2.5cm
+      \hrule\par
+      \vskip 10pt%
+      \flushright
+      \huge \bfseries #1
+      \vskip 10pt%
+      \hrule\par
+      }%
+    }%
+  \vskip 50\p@
+  \setlength{\parindent}{18pt}
+}
+% CHAPTER*
+\def\@makeschapterhead#1{%
+  \reset@font
+  \parindent \z@
+  \vspace*{10\p@}%
+  \hbox{%
+    \vbox{%
+      \hrule\par
+      \vskip 10pt%
+      \flushright
+      \huge \bfseries #1
+      \vskip 10pt%
+      \hrule\par
+      }%
+    }%
+  \vskip 50\p@
+  \setlength{\parindent}{18pt}
+}
+% PART
+\newcommand\newpart[1]{
+% ============
+\part*{#1}
+}
+\def\@spart#1{%
+% ============
+% \markboth{}{}
+% \cleardoublepage
+\thispagestyle{fancyempty}
+\vspace*{100\p@}
+\hbox{
+\vbox{
+  % \hrule\par
+  \vskip 10pt
+  \flushright
+  \fontsize{36}{0} \bfseries {#1}
+  \vskip 8pt
+  \hrule\par
+  }
+}
+\vskip 50\p@
+% \markboth{}{}
+% \adjustmtc
+% \addstarredpart{#1}
+% ============
+\mtcaddpart[#1]
+% ============
+% \cleardoublepage
+}
+
+% CHAPTER ABSTRACT
+\def\chapterabstract#1{
+    % ABSTRACT
+    {\noindent\large \bfseries Abstract}
+    \vspace{0.2cm}
+    \hrule
+    \vspace{0.3cm}
+    % \begin{quotation}
+    \noindent\textit{#1}
+    % \end{quotation}
+    \vspace{0.3cm}
+    \hrule
+
+    % MINITOC
+    \newpage
+    \vspace{2cm}
+
+    % \adjustmtc
+    \minitoc
+    % \thispagestyle{empty}
+    \newpage
+}
+\makeatother
+
+
+% BEGIN DOCUMENT
+\begin{document}
+\frontmatter
+\pagestyle{fancyempty}
+
+% \title{The Title}
+% \author{Myself}
+% \date{}
+% \maketitle
+
+
+\begin{titlepage}
+	\centering
+	\vspace*{6cm}
+	{\Huge\bfseries My thesis\par}
+	\vspace{4cm}
+	{\Large\itshape Myself\par}
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+
+
+
+
+\thispagestyle{empty}
+
+\newpage
+
+% PREAMBULE
+\dominitoc
+
+% ABSTRACT
+\setcounter{page}{1}
+\chapter*{Abstract}
+\mtcaddchapter[Abstract]
+
+This is the abstract.
+
+% TOC
+\cleardoublepage
+\setcounter{tocdepth}{1}
+\markboth{}{}
+\tableofcontents
+\markboth{}{}
+
+\fakelistoffigures
+\fakelistoftables
+
+
+% FIGURE
+% \begin{figure*}[!h]
+% \centering
+% \includegraphics[scale=1]{#1}
+% \end{figure*}
+
+
+% INTRODUCTION
+\mainmatter
+
+\markboth{}{}
+\chapter*{Introduction}
+\mtcaddchapter[Introduction]
+
+This is the introduction.
+
+
+% \adjustmtc
+\adjustmtc
+\newpart{First part}
+\setcounter{mtc}{3}
+
+\input{chap1}
+
+\markboth{}{}
+\newpart{Appendices}
+\appendix
+
+% BIBLIOGRAPHY
+\backmatter
+\cleardoublepage
+\markboth{Bibliography}{Bibliography}
+\thispagestyle{plain}
+\bibliographystyle{apalike}
+\adjustmtc
+\bibliography{biblio}
+
+\end{document}

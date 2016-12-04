@@ -1,0 +1,10 @@
+*.toc
+*.aux
+*.mtc*
+*.log
+*.bbl
+*.blg
+*.lof
+*.lot
+*.maf
+*.brf
