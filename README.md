@@ -1,0 +1,3 @@
+# LaTeX template for PhD thesis
+
+Cover page, table of contents, per-chapter minitoc, BibTeX bibliography, hyperlinks...
